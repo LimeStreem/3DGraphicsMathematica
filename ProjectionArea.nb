@@ -1,0 +1,682 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     22859,        672]
+NotebookOptionsPosition[     22250,        647]
+NotebookOutlinePosition[     22617,        663]
+CellTagsIndexPosition[     22574,        660]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Mat", " ", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"0.3333333432674408", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0.3333333432674408", ",", "0", ",", "0"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0", ",", "0.5", ",", "1.5"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0", ",", "0", ",", "1"}], "}"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.653274373275635*^9, 3.653274418417501*^9}, 
+   3.653275817668729*^9, {3.65327724975113*^9, 3.653277252535132*^9}, {
+   3.653277800419977*^9, 3.653277802213694*^9}, 3.653277891473838*^9, {
+   3.65327925034304*^9, 3.6532792510287323`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0.3333333432674408`", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0.3333333432674408`", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0.5`", ",", "1.5`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", "1"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.653274418890894*^9, 3.653275819591673*^9, 
+  3.653277252925563*^9, 3.653277803249825*^9, 3.653277892337319*^9, 
+  3.6532792517293873`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Project", "[", 
+    RowBox[{"M_", ",", "x_", ",", "y_", ",", "z_", ",", "w_"}], "]"}], " ", ":=",
+    " ", 
+   RowBox[{"Module", "[", " ", 
+    RowBox[{
+     RowBox[{"{", "T", "}"}], ",", 
+     RowBox[{
+      RowBox[{"T", " ", "=", " ", 
+       RowBox[{"M", ".", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y", ",", "z", ",", "w"}], "}"}]}]}], ";", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"T", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], "/", 
+         RowBox[{"T", "[", 
+          RowBox[{"[", "4", "]"}], "]"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "3"}], "}"}]}], "]"}]}]}], "]"}]}], ";"}]], "Input",\
+
+ CellChangeTimes->{{3.6532744431875477`*^9, 3.6532745992387037`*^9}, {
+  3.653274684794794*^9, 3.653274722509119*^9}, {3.653274760324835*^9, 
+  3.6532747608037148`*^9}, {3.653274810857224*^9, 3.653274893205562*^9}, {
+  3.653274936989497*^9, 3.653274955554443*^9}, {3.65327500048092*^9, 
+  3.653275002291954*^9}, {3.653275035269288*^9, 3.653275050789112*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ReducedProject", "[", "M_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "P", "}"}], ",", 
+     RowBox[{
+      RowBox[{"P", " ", "=", " ", 
+       RowBox[{"Project", "[", 
+        RowBox[{"M", ",", "x", ",", "y", ",", "z", ",", "1"}], "]"}]}], ";", 
+      " ", 
+      RowBox[{"Reduce", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "1"}], " ", "<", " ", 
+          RowBox[{"P", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], " ", "<", "1"}], " ", "&&", " ", 
+         RowBox[{
+          RowBox[{"-", "1"}], " ", "<", " ", 
+          RowBox[{"P", "[", 
+           RowBox[{"[", "2", "]"}], "]"}], " ", "<", " ", "1"}], " ", "&&", 
+         " ", 
+         RowBox[{
+          RowBox[{"-", "1"}], " ", "<", " ", 
+          RowBox[{"P", " ", "[", 
+           RowBox[{"[", "3", "]"}], "]"}], " ", "<", " ", "1"}]}], ",", 
+        "Reals"}], "]"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TickList", "[", 
+   RowBox[{"b_", ",", "s_", ",", "l_"}], "]"}], " ", ":=", " ", 
+  RowBox[{"Table", "[", " ", 
+   RowBox[{
+    RowBox[{"b", " ", "+", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"i", "-", "1"}], ")"}], " ", "*", " ", "s"}]}], " ", ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", 
+      RowBox[{"l", "+", "1"}]}], "}"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.65327522515871*^9, 3.653275341685952*^9}, {
+  3.653276866187458*^9, 3.653276935318466*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"PlotProject", "[", 
+   RowBox[{"Mat_", ",", "s_"}], "]"}], ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "Cond", "}"}], ",", 
+    RowBox[{
+     RowBox[{"Cond", "=", 
+      RowBox[{"ReducedProject", "[", "Mat", "]"}]}], ";", " ", 
+     RowBox[{"RegionPlot3D", "[", 
+      RowBox[{"Cond", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "s"}], ",", "s"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", 
+         RowBox[{"-", "s"}], ",", "s"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"z", ",", 
+         RowBox[{"-", "s"}], ",", "s"}], "}"}], ",", 
+       RowBox[{"Mesh", "->", "None"}], ",", 
+       RowBox[{"FaceGrids", "\[Rule]", " ", "All"}], ",", 
+       RowBox[{"Ticks", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"TickList", "[", 
+           RowBox[{
+            RowBox[{"-", "s"}], ",", 
+            RowBox[{"1", "/", "2"}], ",", 
+            RowBox[{"4", "*", "s"}]}], "]"}], ",", 
+          RowBox[{"TickList", "[", 
+           RowBox[{
+            RowBox[{"-", "s"}], ",", 
+            RowBox[{"1", "/", "2"}], ",", 
+            RowBox[{"4", "*", "s"}]}], "]"}], ",", 
+          RowBox[{"TickList", "[", 
+           RowBox[{
+            RowBox[{"-", "s"}], ",", 
+            RowBox[{"1", "/", "2"}], ",", 
+            RowBox[{"4", "*", "s"}]}], "]"}]}], "}"}]}]}], "]"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.653275510550736*^9, 3.6532756267051277`*^9}, {
+  3.653275660263557*^9, 3.653275670927292*^9}, {3.653275833414344*^9, 
+  3.6532758474047422`*^9}, {3.653276080672353*^9, 3.6532761122840233`*^9}, {
+  3.653276273038872*^9, 3.6532762953071127`*^9}, {3.653276452961094*^9, 
+  3.6532764530950327`*^9}, {3.6532765532654657`*^9, 3.6532765558313217`*^9}, {
+  3.653276590374205*^9, 3.653276643819409*^9}, {3.6532767616235437`*^9, 
+  3.653276814952094*^9}, {3.653276941460099*^9, 3.653277000099679*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PlotProject", "[", 
+  RowBox[{"Mat", ",", "10"}], "]"}]], "Input",
+ CellChangeTimes->{{3.653275630342453*^9, 3.653275635033208*^9}, {
+  3.653276117542*^9, 3.653276118155105*^9}, {3.6532836460073967`*^9, 
+  3.653283649560895*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Reduce", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Reduce\:306f\:53b3\:5bc6\:3067\:306a\:3044\:4fc2\:6570\
+\:306e\:7cfb\:3092\:89e3\:304f\:3053\:3068\:304c\:3067\:304d\:307e\:305b\:3093\
+\:3067\:3057\:305f\:ff0e\:89e3\:306f\:5bfe\:5fdc\:3059\:308b\:53b3\:5bc6\:7cfb\
+\:3092\:89e3\:304d\:ff0c\:7d50\:679c\:3092\:6570\:5024\:306b\:5909\:63db\:3059\
+\:308b\:3053\:3068\:3067\:5f97\:3089\:308c\:307e\:3057\:305f\:ff0e \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Reduce/ratnz\\\", \
+ButtonNote -> \\\"Reduce::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6532778051523237`*^9, 3.653279253831406*^9, 
+  3.653283650111134*^9}],
+
+Cell[BoxData[
+ Graphics3DBox[GraphicsComplex3DBox[CompressedData["
+1:eJyFlUFOwzAURC2QLLaIEyBFXGO8LUuOgMQSuEsPg9i19+AQ7FghgQv9dfPy
+R4kaVZ58z3xPJvbt4+vD00Up5aXfl/1+e/7ov7qfNttpU672h7/tdH0ax/PA
+Yzyb93OzJ48bp/P78/e/8deO9YFz3v2hn+/PHeezzxlv75P1rg8+jzF1y/Gi
+buDUDZy6gVM3cLNemfXKrFdmvTLrVa5bW65bW65bW65bW65bW+gGfvc/b6Eb
+OPMRuHuf0SdzF/xreVzLS/TP59RlrmLM/BA3/DL8yuvH+yLOevpPnP7Q/zT3
+XXe2zjP/iaff1Zn/5I/++V1Rl/4XXKyn/+CR4VdeP/wnznr6T5z+mPyL/s/6
+XuZfJv8y+Rf95/5CXZN/0X/ihp/5l8m/TP5l8i+Tf5n8K/cf++BJ99jHwv+B
+p/vswv/BP+9/7LPUzf2vLfd/4IZfhl95Pf0fOOtz/wdOf+g/64Jn7fxY29fI
+w3PAnUOBh5/kCZw83LfAL9OPTD/Kecb5TjznGTn6BU8VwKA=
+   "], {
+    {RGBColor[0.880722, 0.611041, 0.142051], EdgeForm[None], Specularity[
+      GrayLevel[1], 3], 
+     StyleBox[
+      GraphicsGroup3DBox[{
+        Polygon3DBox[{{1, 2, 3}, {83, 98, 84}, {96, 81, 80}, {31, 27, 28}, {7,
+          6, 8}, {24, 29, 25}, {93, 108, 91}, {110, 95, 92}}], 
+        Polygon3DBox[CompressedData["
+1:eJwNw9WSggAAAEADu7sDExMMRMVWVGyxWzEA6/7/7dyZBek/ihbweDz2F/hd
+b3tdlVIiFSlkArXBqFHqtAqFVi2TqTVysT8g9fnFgESpEAlkcqE86BUCIgGf
+mjUbXpAvtNrdLqfDbJlM6zW7w+OeUo26XqdUaU0GNegD+GKJCNCZTdowhgaD
+KOKFoha9MRLWBEIqqS0WMUbjTksc9jhdiZjNAyfdp+/nqAkH5dlcKBCC9KpU
+2gdGCljYn8kGcnkoFMMLkWSlnEiU8Vg64/fli1GoWIpHkRToNTvsJotZpzdY
+bcZur5jH+2ShNygV2918rt5Ip7b7QY97Mo/ni2VGx8OwQHawDfdYYR0CbbVz
+2fmy3Vquu21ys+r0dxuyOh5VysM+3mhm0plmK4sSNaQyGpbZ13Z9Z9fL3Zvb
+3O70hb4v54vreXK9Xc7N2bxVq6cQk91qgKuVpDuZcF3oGfVgbtfzhZqOT8cR
+sZjUjp/34fN9PV/f/bazWhDvz5Nj2PttfxoPBuNqafW4LoaHXb9UheP/719c
+Yw==
+         "]]}],
+      Lighting->{{"Ambient", 
+         RGBColor[0.30100577, 0.22414668499999998`, 0.090484535]}, {
+        "Directional", 
+         RGBColor[0.2642166, 0.18331229999999998`, 0.04261530000000001], 
+         ImageScaled[{0, 2, 2}]}, {"Directional", 
+         RGBColor[0.2642166, 0.18331229999999998`, 0.04261530000000001], 
+         ImageScaled[{2, 2, 2}]}, {"Directional", 
+         RGBColor[0.2642166, 0.18331229999999998`, 0.04261530000000001], 
+         ImageScaled[{2, 0, 2}]}}]}, {}, {}, {}, {}, {}, {}},
+   VertexNormals->CompressedData["
+1:eJxTTMoPSmViYGDIA2JmIDZrWbVwZ9GN/ZftLeJn5L7drx7HYFCUvn3/JSjf
+DiqvCRX/e82/dBHz4/1M1yH0pqUMojcjHu5PWrlu2aPaG/vdeo3OZ094u58B
+CmB8mDxMPM5NUfVN3I39QtpHr34yBsr/vvo2nv+wPR+UXwaVT4aKh/1U/3dj
+4cP9iVA6/u7e6fJ8T+wX8Vh//3X9Pdzcb6VHlFjddu432rzKssjjCVw8TH/3
+C8MDL6D8D3BxGHjIMTvfYhrCnPjNfdy3Go7Yn2w4Ef5p6yO4uOi9c9qbvr7E
+sPcr1F7jYWovWnqwx5Ee7DdC0wNavNvDzEOLX3sc8WsPi19z1PRprwG1Fy29
+wc2PR01XcPNh8rBwQg0fBgZYuMLCEzW0cIdfMjTcYOInoOEHCzd0fbjMg4rT
+TT00HOzRwwHqfnt090PDx/4b9vDBcAc0fOzRwwdX+C+Ghv8XEsM/YYSEPzR8
+7HGkT5zhjx4+o+EPAfQOf2g5aQ+rN2HlJLT+tYfVv2qo5Zs9en2aAy03+aHl
+aBa0fIuBlpsR0HI0AVp+wvwJ0w/zL7Sch4vD/Etr9f9QwwFeX6C53x7mfrTw
+sccRPnB7slHDxz4TGj7Q+sveHlqfaEHNgelHb58IQPWnQesTWDjDykGYOtTy
+EHc6gPFh9Sy6OV8G2BxY+KDX72jhA9eHFj7wcAYAhalYXw==
+    "]],
+  Axes->True,
+  BoxRatios->{1, 1, 1},
+  DisplayFunction->Identity,
+  FaceGrids->All,
+  FaceGridsStyle->Automatic,
+  ImageSize->{599.2069272420815, 571.},
+  Method->{"DefaultBoundaryStyle" -> Directive[
+      GrayLevel[0.3]]},
+  PlotRange->{{-10, 10}, {-10, 10}, {-10, 10}},
+  PlotRangePadding->{
+    Scaled[0.02], 
+    Scaled[0.02], 
+    Scaled[0.02]},
+  Ticks->{{{-10, 
+      FormBox[
+       RowBox[{"-", "10"}], TraditionalForm]}, {
+      NCache[
+       Rational[-19, 2], -9.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["19", "2"]}], TraditionalForm]}, {-9, 
+      FormBox[
+       RowBox[{"-", "9"}], TraditionalForm]}, {
+      NCache[
+       Rational[-17, 2], -8.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["17", "2"]}], TraditionalForm]}, {-8, 
+      FormBox[
+       RowBox[{"-", "8"}], TraditionalForm]}, {
+      NCache[
+       Rational[-15, 2], -7.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["15", "2"]}], TraditionalForm]}, {-7, 
+      FormBox[
+       RowBox[{"-", "7"}], TraditionalForm]}, {
+      NCache[
+       Rational[-13, 2], -6.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["13", "2"]}], TraditionalForm]}, {-6, 
+      FormBox[
+       RowBox[{"-", "6"}], TraditionalForm]}, {
+      NCache[
+       Rational[-11, 2], -5.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["11", "2"]}], TraditionalForm]}, {-5, 
+      FormBox[
+       RowBox[{"-", "5"}], TraditionalForm]}, {
+      NCache[
+       Rational[-9, 2], -4.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["9", "2"]}], TraditionalForm]}, {-4, 
+      FormBox[
+       RowBox[{"-", "4"}], TraditionalForm]}, {
+      NCache[
+       Rational[-7, 2], -3.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["7", "2"]}], TraditionalForm]}, {-3, 
+      FormBox[
+       RowBox[{"-", "3"}], TraditionalForm]}, {
+      NCache[
+       Rational[-5, 2], -2.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["5", "2"]}], TraditionalForm]}, {-2, 
+      FormBox[
+       RowBox[{"-", "2"}], TraditionalForm]}, {
+      NCache[
+       Rational[-3, 2], -1.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["3", "2"]}], TraditionalForm]}, {-1, 
+      FormBox[
+       RowBox[{"-", "1"}], TraditionalForm]}, {
+      NCache[
+       Rational[-1, 2], -0.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["1", "2"]}], TraditionalForm]}, {0, 
+      FormBox["0", TraditionalForm]}, {
+      NCache[
+       Rational[1, 2], 0.5], 
+      FormBox[
+       FractionBox["1", "2"], TraditionalForm]}, {1, 
+      FormBox["1", TraditionalForm]}, {
+      NCache[
+       Rational[3, 2], 1.5], 
+      FormBox[
+       FractionBox["3", "2"], TraditionalForm]}, {2, 
+      FormBox["2", TraditionalForm]}, {
+      NCache[
+       Rational[5, 2], 2.5], 
+      FormBox[
+       FractionBox["5", "2"], TraditionalForm]}, {3, 
+      FormBox["3", TraditionalForm]}, {
+      NCache[
+       Rational[7, 2], 3.5], 
+      FormBox[
+       FractionBox["7", "2"], TraditionalForm]}, {4, 
+      FormBox["4", TraditionalForm]}, {
+      NCache[
+       Rational[9, 2], 4.5], 
+      FormBox[
+       FractionBox["9", "2"], TraditionalForm]}, {5, 
+      FormBox["5", TraditionalForm]}, {
+      NCache[
+       Rational[11, 2], 5.5], 
+      FormBox[
+       FractionBox["11", "2"], TraditionalForm]}, {6, 
+      FormBox["6", TraditionalForm]}, {
+      NCache[
+       Rational[13, 2], 6.5], 
+      FormBox[
+       FractionBox["13", "2"], TraditionalForm]}, {7, 
+      FormBox["7", TraditionalForm]}, {
+      NCache[
+       Rational[15, 2], 7.5], 
+      FormBox[
+       FractionBox["15", "2"], TraditionalForm]}, {8, 
+      FormBox["8", TraditionalForm]}, {
+      NCache[
+       Rational[17, 2], 8.5], 
+      FormBox[
+       FractionBox["17", "2"], TraditionalForm]}, {9, 
+      FormBox["9", TraditionalForm]}, {
+      NCache[
+       Rational[19, 2], 9.5], 
+      FormBox[
+       FractionBox["19", "2"], TraditionalForm]}, {10, 
+      FormBox["10", TraditionalForm]}}, {{-10, 
+      FormBox[
+       RowBox[{"-", "10"}], TraditionalForm]}, {
+      NCache[
+       Rational[-19, 2], -9.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["19", "2"]}], TraditionalForm]}, {-9, 
+      FormBox[
+       RowBox[{"-", "9"}], TraditionalForm]}, {
+      NCache[
+       Rational[-17, 2], -8.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["17", "2"]}], TraditionalForm]}, {-8, 
+      FormBox[
+       RowBox[{"-", "8"}], TraditionalForm]}, {
+      NCache[
+       Rational[-15, 2], -7.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["15", "2"]}], TraditionalForm]}, {-7, 
+      FormBox[
+       RowBox[{"-", "7"}], TraditionalForm]}, {
+      NCache[
+       Rational[-13, 2], -6.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["13", "2"]}], TraditionalForm]}, {-6, 
+      FormBox[
+       RowBox[{"-", "6"}], TraditionalForm]}, {
+      NCache[
+       Rational[-11, 2], -5.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["11", "2"]}], TraditionalForm]}, {-5, 
+      FormBox[
+       RowBox[{"-", "5"}], TraditionalForm]}, {
+      NCache[
+       Rational[-9, 2], -4.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["9", "2"]}], TraditionalForm]}, {-4, 
+      FormBox[
+       RowBox[{"-", "4"}], TraditionalForm]}, {
+      NCache[
+       Rational[-7, 2], -3.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["7", "2"]}], TraditionalForm]}, {-3, 
+      FormBox[
+       RowBox[{"-", "3"}], TraditionalForm]}, {
+      NCache[
+       Rational[-5, 2], -2.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["5", "2"]}], TraditionalForm]}, {-2, 
+      FormBox[
+       RowBox[{"-", "2"}], TraditionalForm]}, {
+      NCache[
+       Rational[-3, 2], -1.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["3", "2"]}], TraditionalForm]}, {-1, 
+      FormBox[
+       RowBox[{"-", "1"}], TraditionalForm]}, {
+      NCache[
+       Rational[-1, 2], -0.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["1", "2"]}], TraditionalForm]}, {0, 
+      FormBox["0", TraditionalForm]}, {
+      NCache[
+       Rational[1, 2], 0.5], 
+      FormBox[
+       FractionBox["1", "2"], TraditionalForm]}, {1, 
+      FormBox["1", TraditionalForm]}, {
+      NCache[
+       Rational[3, 2], 1.5], 
+      FormBox[
+       FractionBox["3", "2"], TraditionalForm]}, {2, 
+      FormBox["2", TraditionalForm]}, {
+      NCache[
+       Rational[5, 2], 2.5], 
+      FormBox[
+       FractionBox["5", "2"], TraditionalForm]}, {3, 
+      FormBox["3", TraditionalForm]}, {
+      NCache[
+       Rational[7, 2], 3.5], 
+      FormBox[
+       FractionBox["7", "2"], TraditionalForm]}, {4, 
+      FormBox["4", TraditionalForm]}, {
+      NCache[
+       Rational[9, 2], 4.5], 
+      FormBox[
+       FractionBox["9", "2"], TraditionalForm]}, {5, 
+      FormBox["5", TraditionalForm]}, {
+      NCache[
+       Rational[11, 2], 5.5], 
+      FormBox[
+       FractionBox["11", "2"], TraditionalForm]}, {6, 
+      FormBox["6", TraditionalForm]}, {
+      NCache[
+       Rational[13, 2], 6.5], 
+      FormBox[
+       FractionBox["13", "2"], TraditionalForm]}, {7, 
+      FormBox["7", TraditionalForm]}, {
+      NCache[
+       Rational[15, 2], 7.5], 
+      FormBox[
+       FractionBox["15", "2"], TraditionalForm]}, {8, 
+      FormBox["8", TraditionalForm]}, {
+      NCache[
+       Rational[17, 2], 8.5], 
+      FormBox[
+       FractionBox["17", "2"], TraditionalForm]}, {9, 
+      FormBox["9", TraditionalForm]}, {
+      NCache[
+       Rational[19, 2], 9.5], 
+      FormBox[
+       FractionBox["19", "2"], TraditionalForm]}, {10, 
+      FormBox["10", TraditionalForm]}}, {{-10, 
+      FormBox[
+       RowBox[{"-", "10"}], TraditionalForm]}, {
+      NCache[
+       Rational[-19, 2], -9.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["19", "2"]}], TraditionalForm]}, {-9, 
+      FormBox[
+       RowBox[{"-", "9"}], TraditionalForm]}, {
+      NCache[
+       Rational[-17, 2], -8.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["17", "2"]}], TraditionalForm]}, {-8, 
+      FormBox[
+       RowBox[{"-", "8"}], TraditionalForm]}, {
+      NCache[
+       Rational[-15, 2], -7.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["15", "2"]}], TraditionalForm]}, {-7, 
+      FormBox[
+       RowBox[{"-", "7"}], TraditionalForm]}, {
+      NCache[
+       Rational[-13, 2], -6.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["13", "2"]}], TraditionalForm]}, {-6, 
+      FormBox[
+       RowBox[{"-", "6"}], TraditionalForm]}, {
+      NCache[
+       Rational[-11, 2], -5.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["11", "2"]}], TraditionalForm]}, {-5, 
+      FormBox[
+       RowBox[{"-", "5"}], TraditionalForm]}, {
+      NCache[
+       Rational[-9, 2], -4.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["9", "2"]}], TraditionalForm]}, {-4, 
+      FormBox[
+       RowBox[{"-", "4"}], TraditionalForm]}, {
+      NCache[
+       Rational[-7, 2], -3.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["7", "2"]}], TraditionalForm]}, {-3, 
+      FormBox[
+       RowBox[{"-", "3"}], TraditionalForm]}, {
+      NCache[
+       Rational[-5, 2], -2.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["5", "2"]}], TraditionalForm]}, {-2, 
+      FormBox[
+       RowBox[{"-", "2"}], TraditionalForm]}, {
+      NCache[
+       Rational[-3, 2], -1.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["3", "2"]}], TraditionalForm]}, {-1, 
+      FormBox[
+       RowBox[{"-", "1"}], TraditionalForm]}, {
+      NCache[
+       Rational[-1, 2], -0.5], 
+      FormBox[
+       RowBox[{"-", 
+         FractionBox["1", "2"]}], TraditionalForm]}, {0, 
+      FormBox["0", TraditionalForm]}, {
+      NCache[
+       Rational[1, 2], 0.5], 
+      FormBox[
+       FractionBox["1", "2"], TraditionalForm]}, {1, 
+      FormBox["1", TraditionalForm]}, {
+      NCache[
+       Rational[3, 2], 1.5], 
+      FormBox[
+       FractionBox["3", "2"], TraditionalForm]}, {2, 
+      FormBox["2", TraditionalForm]}, {
+      NCache[
+       Rational[5, 2], 2.5], 
+      FormBox[
+       FractionBox["5", "2"], TraditionalForm]}, {3, 
+      FormBox["3", TraditionalForm]}, {
+      NCache[
+       Rational[7, 2], 3.5], 
+      FormBox[
+       FractionBox["7", "2"], TraditionalForm]}, {4, 
+      FormBox["4", TraditionalForm]}, {
+      NCache[
+       Rational[9, 2], 4.5], 
+      FormBox[
+       FractionBox["9", "2"], TraditionalForm]}, {5, 
+      FormBox["5", TraditionalForm]}, {
+      NCache[
+       Rational[11, 2], 5.5], 
+      FormBox[
+       FractionBox["11", "2"], TraditionalForm]}, {6, 
+      FormBox["6", TraditionalForm]}, {
+      NCache[
+       Rational[13, 2], 6.5], 
+      FormBox[
+       FractionBox["13", "2"], TraditionalForm]}, {7, 
+      FormBox["7", TraditionalForm]}, {
+      NCache[
+       Rational[15, 2], 7.5], 
+      FormBox[
+       FractionBox["15", "2"], TraditionalForm]}, {8, 
+      FormBox["8", TraditionalForm]}, {
+      NCache[
+       Rational[17, 2], 8.5], 
+      FormBox[
+       FractionBox["17", "2"], TraditionalForm]}, {9, 
+      FormBox["9", TraditionalForm]}, {
+      NCache[
+       Rational[19, 2], 9.5], 
+      FormBox[
+       FractionBox["19", "2"], TraditionalForm]}, {10, 
+      FormBox["10", TraditionalForm]}}},
+  ViewPoint->{2.7395675636373102`, -0.1818144327429551, 1.9778051158576555`},
+  ViewVertical->{0.5280410252622283, 0.7733345338839018, 
+   0.35089367954208484`}]], "Output",
+ CellChangeTimes->{
+  3.653275638138152*^9, 3.653275676127721*^9, {3.653275824763064*^9, 
+   3.65327585079568*^9}, 3.6532759255366364`*^9, {3.653276087299712*^9, 
+   3.653276118554126*^9}, {3.65327628587575*^9, 3.653276299765864*^9}, 
+   3.6532764583040333`*^9, 3.653276561397121*^9, {3.653276597053886*^9, 
+   3.653276645676355*^9}, 3.653276817537077*^9, {3.65327697631569*^9, 
+   3.653277004313376*^9}, 3.6532772552046623`*^9, 3.6532778052819347`*^9, 
+   3.6532792538915863`*^9, 3.653283650177773*^9}]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{-2, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (2015\:5e747\
+\:670829\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 705, 15, 28, "Input"],
+Cell[1288, 39, 571, 13, 28, "Output"]
+}, Open  ]],
+Cell[1874, 55, 1082, 28, 42, "Input"],
+Cell[2959, 85, 1499, 42, 74, "Input"],
+Cell[4461, 129, 1956, 48, 42, "Input"],
+Cell[CellGroupData[{
+Cell[6442, 181, 253, 5, 28, "Input"],
+Cell[6698, 188, 791, 14, 24, "Message"],
+Cell[7492, 204, 14742, 440, 586, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

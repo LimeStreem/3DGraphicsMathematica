@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     22859,        672]
-NotebookOptionsPosition[     22250,        647]
-NotebookOutlinePosition[     22617,        663]
-CellTagsIndexPosition[     22574,        660]
+NotebookDataLength[     23374,        684]
+NotebookOptionsPosition[     22726,        658]
+NotebookOutlinePosition[     23093,        674]
+CellTagsIndexPosition[     23050,        671]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -632,9 +632,9 @@ EHc6gPFh9Sy6OV8G2BxY+KDX72jhA9eHFj7wcAYAhalYXw==
       FormBox[
        FractionBox["19", "2"], TraditionalForm]}, {10, 
       FormBox["10", TraditionalForm]}}},
-  ViewPoint->{2.7395675636373102`, -0.1818144327429551, 1.9778051158576555`},
-  ViewVertical->{0.5280410252622283, 0.7733345338839018, 
-   0.35089367954208484`}]], "Output",
+  ViewPoint->{-2.6712952877918346`, 0.7579809327524136, -1.93381653499109},
+  ViewVertical->{-0.3218801635433905, 
+   0.918527666728872, -0.2295649924768465}]], "Output",
  CellChangeTimes->{
   3.653275638138152*^9, 3.653275676127721*^9, {3.653275824763064*^9, 
    3.65327585079568*^9}, 3.6532759255366364`*^9, {3.653276087299712*^9, 
@@ -643,7 +643,18 @@ EHc6gPFh9Sy6OV8G2BxY+KDX72jhA9eHFj7wcAYAhalYXw==
    3.653276645676355*^9}, 3.653276817537077*^9, {3.65327697631569*^9, 
    3.653277004313376*^9}, 3.6532772552046623`*^9, 3.6532778052819347`*^9, 
    3.6532792538915863`*^9, 3.653283650177773*^9}]
-}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"#\:4ee5\:4e0b\:306bPlotProject", "[", 
+   RowBox[{
+   "\:8a08\:7b97\:3057\:305f\:3044\:884c\:5217", ",", 
+    "\:8868\:793a\:7bc4\:56f2"}], "]"}], 
+  "\:3092\:66f8\:304f\:3053\:3068\:306b\:3088\:308a\:4e0a\:8a18\:306e\:3088\
+\:3046\:306b\:884c\:5217\:306e\:5c04\:5f71\:3059\:308b\:9818\:57df\:3092\:56f3\
+\:8a18\:3059\:308b\:3053\:3068\:304c\:3067\:304d\:308b"}]], "Input",
+ CellChangeTimes->{{3.6533413955212173`*^9, 3.653341473492818*^9}}]
 },
 WindowSize->{Full, Full},
 WindowMargins->{{-2, Automatic}, {Automatic, 0}},
@@ -672,11 +683,11 @@ Cell[4461, 129, 1956, 48, 42, "Input"],
 Cell[CellGroupData[{
 Cell[6442, 181, 253, 5, 28, "Input"],
 Cell[6698, 188, 791, 14, 24, "Message"],
-Cell[7492, 204, 14742, 440, 586, "Output"]
-}, Open  ]]
+Cell[7492, 204, 14739, 440, 586, "Output"]
+}, Open  ]],
+Cell[22246, 647, 476, 9, 35, "Input"]
 }
 ]
 *)
 
 (* End of internal cache information *)
-
